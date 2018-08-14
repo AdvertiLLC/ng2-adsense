@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng2-adsense": {
+    "ng2-avrtix": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng2-adsense:build"
+            "browserTarget": "ng2-avrtix:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng2-adsense:build:production"
+              "browserTarget": "ng2-avrtix:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng2-adsense:build"
+            "browserTarget": "ng2-avrtix:build"
           }
         },
         "test": {
@@ -94,7 +94,7 @@
       }
     }
   },
-  "defaultProject": "ng2-adsense",
+  "defaultProject": "ng2-avrtix",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

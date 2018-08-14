@@ -1,9 +1,9 @@
 import { async, TestBed } from '@angular/core/testing';
 
-import { AdsenseComponent } from './adsense.component';
-import { AdsenseModule } from './adsense.module';
+import { AdvertiComponent } from './adverti.component';
+import { AdvertiModule } from './adverti.module';
 
-describe('AdsenseComponent', () => {
+describe('AdvertiComponent', () => {
   const options = {
     adClient: 'ca-pub-7640562161899788',
     adSlot: 2930227358,
@@ -11,16 +11,16 @@ describe('AdsenseComponent', () => {
   };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AdsenseModule.forRoot(options)],
+      imports: [AdvertiModule.forRoot(options)],
     }).compileComponents();
   }));
 
-  it('should render ng adsense', async(() => {
-    const fixture = TestBed.createComponent(AdsenseComponent);
+  it('should render ng avrtix', async(() => {
+    const fixture = TestBed.createComponent(AdvertiComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const ad = compiled.querySelector('ins');
-    expect(ad.className).toEqual('adsbygoogle');
+    expect(ad.className).toEqual('avrtix');
     expect(ad.getAttribute('data-ad-slot')).toEqual(String(options.adSlot));
     expect(ad.getAttribute('data-ad-client')).toEqual(options.adClient);
     expect(ad.getAttribute('data-layout')).toEqual('z1');

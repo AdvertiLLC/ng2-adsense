@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   <p class="text-center">
     <strong>Current View: {{ title }}</strong>
   </p>
-  <ng-adsense></ng-adsense>
-  <ng-adsense></ng-adsense>
+  <ng-avrtix></ng-avrtix>
+  <ng-avrtix></ng-avrtix>
   `,
 })
 export class PageComponent {
@@ -27,14 +27,14 @@ export class PageComponent {
   <p class="text-center">
     <strong>Current View: {{ title }}</strong>
   </p>
-  <ng2-adsense
+  <ng2-avrtix
     [adClient]="'ca-pub-7640562161899788'"
     [adSlot]="2930227358" [width]="320" [height]="108">
-  </ng2-adsense>
-  <ng2-adsense
+  </ng2-avrtix>
+  <ng2-avrtix
     [display]="'inline-block'"
     [width]="320" [height]="108">
-  </ng2-adsense>
+  </ng2-avrtix>
   `,
 })
 export class OtherPageComponent extends PageComponent {
@@ -50,8 +50,8 @@ export class OtherPageComponent extends PageComponent {
   <p class="text-center">
     <strong>Current View: {{ title }}</strong>
   </p>
-  <ng2-adsense *ngIf="!loading"></ng2-adsense>
-  <ng2-adsense *ngIf="!loading"></ng2-adsense>
+  <ng2-avrtix *ngIf="!loading"></ng2-avrtix>
+  <ng2-avrtix *ngIf="!loading"></ng2-avrtix>
   `,
 })
 export class ReloadPageComponent implements OnInit {

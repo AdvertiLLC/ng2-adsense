@@ -1,15 +1,15 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
-  "name": "ng2-adsense",
-  "version": "0.0.0-placeholder",
-  "description": "Adsense for Angular",
-  "repository": "https://github.com/scttcper/ng2-adsense.git",
-  "keywords": ["Angular", "ng2", "angular2", "typescript", "AdSense"],
+  "name": "ng2-avrtix",
+  "version": "0.0.1",
+  "description": "Adverti SSP for Angular",
+  "repository": "https://github.com/AdvertiLLC/ng2-avrtix.git",
+  "keywords": ["Angular", "ng2", "angular2", "typescript", "Adverti", "SSP", "Avrtix"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scttcper/ng2-adsense/issues"
+    "url": "https://github.com/AdvertiLLC/ng2-avrtix/issues"
   },
-  "homepage": "https://github.com/scttcper/ng2-adsense",
+  "homepage": "https://github.com/AdvertiLLC/ng2-avrtix",
   "peerDependencies": {
     "@angular/core": "^5.2.0 || ^6.0.0",
     "@angular/common": "^5.2.0 || ^6.0.0"

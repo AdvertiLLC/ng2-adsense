@@ -1,3 +1,3 @@
-export { AdsenseComponent } from './adsense.component';
-export { AdsenseModule } from './adsense.module';
-export { AdsenseConfig, ADSENSE_TOKEN } from './adsense-config';
+export { AdvertiComponent } from './adverti.component';
+export { AdvertiModule } from './adverti.module';
+export { AdvertiConfig, ADVERTI_TOKEN } from './adverti-config';

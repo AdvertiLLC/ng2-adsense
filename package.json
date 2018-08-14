@@ -1,21 +1,21 @@
 {
-  "name": "ng2-adsense",
-  "version": "0.0.0-placeholder",
+  "name": "ng2-avrtix",
+  "version": "1.0.0",
   "license": "MIT",
-  "repository": "scttcper/ng2-adsense",
+  "repository": "AdvertiLLC/ng2-avrtix",
   "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ts-node build.ts",
-    "ghpages": "ng build --prod --no-progress --baseHref='/ng2-adsense/'",
+    "ghpages": "ng build --prod --no-progress --baseHref='/ng2-avrtix/'",
     "publish": "cd dist && npm publish",
     "bundlesize": "npx bundlesize",
     "test": "ng test ---watch=false --browsers=ChromeCI",
     "test:watch": "ng test --browsers=ChromeCI",
     "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",
-    "lint": "ng lint ng2-adsense --type-check ---format stylish",
-    "lint:fix": "ng lint ng2-adsense --type-check --fix ---format stylish",
+    "lint": "ng lint ng2-avrtix --type-check ---format stylish",
+    "lint:fix": "ng lint ng2-avrtix --type-check --fix ---format stylish",
     "commit": "git-cz",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "cd dist && semantic-release"
@@ -78,7 +78,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/bundles/ng2-adsense.umd.min.js",
+      "path": "./dist/bundles/ng2-avrtix.umd.min.js",
       "maxSize": "2 kB"
     }
   ]

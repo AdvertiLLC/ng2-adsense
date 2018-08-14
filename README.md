@@ -1,4 +1,4 @@
-# ng2-adsense [![NPM version][npm-image]][npm-url] [![build status][travis-img]][travis-url] [![coverage status][coverage-img]][coverage-url]
+# ng2-avrtix [![NPM version][npm-image]][npm-url] [![build status][travis-img]][travis-url] [![coverage status][coverage-img]][coverage-url]
 
 [npm-image]: https://img.shields.io/npm/v/ng2-adsense.svg
 [npm-url]: https://npmjs.org/package/ng2-adsense
@@ -7,37 +7,37 @@
 [coverage-img]: https://codecov.io/gh/scttcper/ng2-adsense/branch/master/graph/badge.svg
 [coverage-url]: https://codecov.io/gh/scttcper/ng2-adsense
 
-> Easy AdSense for Angular Applications
+> Easy Adverti SSP for Angular Applications
 
-Demo: https://scttcper.github.io/ng2-adsense/
+Demo: https://advertillc.github.io/ng2-avrtix
 
 ## Install
 
 ```bash
-npm install ng2-adsense
+npm install ng2-avrtix
 ```
 
 ## Use
 
-#### Add adsense code
+#### Add Adverti code
 
-Use the standard AdSense code somewhere in your `<head></head>` as you [normally would](https://support.google.com/adsense/answer/7477845)
+Use the standard Adverti SSP code somewhere in your `<head></head>` as you [normally would]()
 
 ```html
-<script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="//cdn.avrtix.com/v1/async.min.js"></script>
 ```
 
 #### Import NgModule
 
-Add AdsenseModule to the imports of your NgModule
+Add AdvertiModule to the imports of your NgModule
 
 ```typescript
-import { AdsenseModule } from 'ng2-adsense';
+import { AdvertiModule } from 'ng2-avrtix';
 
 @NgModule({
   imports: [
     // shown passing global defaults (optional)
-    AdsenseModule.forRoot({
+    AdvertiModule.forRoot({
       adClient: 'ca-pub-7640562161899788',
       adSlot: 7259870550,
     }),
@@ -49,7 +49,7 @@ import { AdsenseModule } from 'ng2-adsense';
 Uses global defaults which can be overriden via inputs
 
 ```html
-<ng-adsense></ng-adsense>
+<ng-avrtix></ng-avrtix>
 ```
 
 ## Inputs
@@ -70,11 +70,11 @@ Uses global defaults which can be overriden via inputs
 | adtest       | string        | sets up some sort of google test ad                                   |
 
 ```html
-<ng-adsense
+<ng-avrtix
   [adClient]="'ca-pub-7640562161899788'"
   [adSlot]="7259870550"
   [display]="'inline-block'"
   [width]="320"
   [height]="108">
-</ng-adsense>
+</ng-avrtix>
 ```

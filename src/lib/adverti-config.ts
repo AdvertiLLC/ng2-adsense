@@ -3,7 +3,7 @@ import { InjectionToken } from '@angular/core';
 /**
  * Set optional global default values
  */
-export interface AdsenseConfig {
+export interface AdvertiConfig {
   /** adsense account ca-pub-XXXXXXXXXXXXXXXX */
   adClient: string;
   /** ad slot/number */
@@ -27,6 +27,6 @@ export interface AdsenseConfig {
   adtest: string;
 }
 
-export const ADSENSE_TOKEN = new InjectionToken<AdsenseConfig>(
-  'AdsenseConfig',
+export const ADVERTI_TOKEN = new InjectionToken<AdvertiConfig>(
+  'AdvertiConfig',
 );

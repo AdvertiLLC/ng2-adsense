@@ -1,6 +1,6 @@
 import { async, TestBed } from '@angular/core/testing';
 
-import { AdsenseModule } from '../lib/public_api';
+import { AdvertiModule } from '../lib/public_api';
 
 import {
   OtherPageComponent,
@@ -15,7 +15,7 @@ describe('PageComponent', () => {
   };
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AdsenseModule.forRoot(options)],
+      imports: [AdvertiModule.forRoot(options)],
       declarations: [PageComponent],
     });
     TestBed.compileComponents();
@@ -66,7 +66,7 @@ describe('OtherPageComponent', () => {
   };
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AdsenseModule.forRoot(options)],
+      imports: [AdvertiModule.forRoot(options)],
       declarations: [OtherPageComponent],
     });
     TestBed.compileComponents();
@@ -91,7 +91,7 @@ describe('OtherPageComponent', () => {
   );
 
   it(
-    'should render ng adsense',
+    'should render ng avrtix',
     async(() => {
       const fixture = TestBed.createComponent(OtherPageComponent);
       fixture.detectChanges();

@@ -9,12 +9,12 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { AdsenseConfig, ADSENSE_TOKEN } from './adsense-config';
+import { AdvertiConfig, ADVERTI_TOKEN } from './adverti-config';
 
 @Component({
-  selector: 'ng2-adsense,ng-adsense',
+  selector: 'ng2-avrtix,ng-avrtix',
   template: `
-  <ins #ins class="adsbygoogle"
+  <ins #ins class="avrtix"
     [ngStyle]="{'display': display, 'width.px': width, 'height.px': height }"
     [attr.data-ad-client]="adClient"
     [attr.data-ad-slot]="adSlot"
@@ -28,7 +28,7 @@ import { AdsenseConfig, ADSENSE_TOKEN } from './adsense-config';
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdsenseComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AdvertiComponent implements OnInit, AfterViewInit, OnDestroy {
   /** adsense account ca-pub-XXXXXXXXXXXXXXXX */
   @Input() adClient: string;
   /** ad slot/number */
@@ -55,7 +55,7 @@ export class AdsenseComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('ins') ins: any;
 
   constructor(
-    @Inject(ADSENSE_TOKEN) private config: AdsenseConfig,
+    @Inject(ADVERTI_TOKEN) private config: AdvertiConfig,
   ) {}
 
   ngOnInit() {
@@ -102,8 +102,8 @@ export class AdsenseComponent implements OnInit, AfterViewInit, OnDestroy {
       p.enable_page_level_ads = true;
     }
     try {
-      const adsbygoogle = window['adsbygoogle'];
-      adsbygoogle.push(p);
+      const avrtix = window['avrtix'];
+      avrtix.push(p);
       return true;
     } catch (e) {
       return e;
