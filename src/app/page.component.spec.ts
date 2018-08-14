@@ -9,9 +9,11 @@ import {
 
 describe('PageComponent', () => {
   const options = {
-    adClient: 'ca-pub-7640562161899788',
-    adSlot: 2930227358,
-    layout: 'z1',
+    network: 'mynetwork',
+    site: 1,
+    placement: 1,
+    width: 728,
+    height: 90,
   };
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -40,29 +42,24 @@ describe('PageComponent', () => {
   );
 
   it(
-    'should render ng adsense',
+    'should render ng avrtix',
     async(() => {
       const fixture = TestBed.createComponent(PageComponent);
       fixture.detectChanges();
       const compiled = fixture.debugElement.nativeElement;
       const ad = compiled.querySelector('ins');
       expect(ad.className).toEqual('avrtix');
-      expect(ad.getAttribute('data-ad-slot')).toEqual(String(options.adSlot));
-      expect(ad.getAttribute('data-ad-client')).toEqual(options.adClient);
-      expect(ad.getAttribute('data-layout')).toEqual('z1');
-      expect(ad.getAttribute('data-layout-key')).toEqual(null);
-      expect(ad.getAttribute('height')).toEqual(null);
-      expect(ad.getAttribute('width')).toEqual(null);
     }),
   );
 });
 
 describe('OtherPageComponent', () => {
   const options = {
-    adClient: 'ca-pub-7640562161899788',
-    adSlot: 2930227358,
-    heigth: 108,
-    width: 320,
+    network: 'mynetwork',
+    site: 1,
+    placement: 1,
+    width: 728,
+    height: 90,
   };
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -98,10 +95,6 @@ describe('OtherPageComponent', () => {
       const compiled = fixture.debugElement.nativeElement;
       const ad = compiled.querySelector('ins');
       expect(ad.className).toEqual('avrtix');
-      expect(ad.getAttribute('data-ad-slot')).toEqual(String(options.adSlot));
-      expect(ad.getAttribute('data-ad-client')).toEqual(options.adClient);
-      expect(ad.getAttribute('data-layout')).toEqual(null);
-      expect(ad.getAttribute('data-layout-key')).toEqual(null);
     }),
   );
 });
