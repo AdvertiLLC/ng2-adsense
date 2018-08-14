@@ -66,8 +66,7 @@ Uses global defaults which can be overriden via inputs
 | height       | number        | element height in px                                                  |
 | width        | number        | element width in px                                                   |
 | host         | string        | Custom whitelabel host (DO NOT CHANGE UNLESS CONFIGURED CORRECTLY)    |
-| timeOutRetry | boolean       | on first load sometimes adsense is not ready. retry's push after x ms |
-| adtest       | string        | sets up some sort of google test ad                                   |
+| timeOutRetry | number        | on first load sometimes avrtix is not ready. retry's push after x ms  |
 
 ```html
 <ng-avrtix
