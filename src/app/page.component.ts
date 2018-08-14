@@ -28,12 +28,16 @@ export class PageComponent {
     <strong>Current View: {{ title }}</strong>
   </p>
   <ng2-avrtix
-    [adClient]="'ca-pub-7640562161899788'"
-    [adSlot]="2930227358" [width]="320" [height]="108">
+    [network]="'mynetwork'"
+    [site]="1"
+    [placement]="1"
+    [width]="728" [height]="90"
+    [host]="'mynetwork.avrtiz.com'">
   </ng2-avrtix>
   <ng2-avrtix
     [display]="'inline-block'"
-    [width]="320" [height]="108">
+    [width]="728" [height]="90"
+    [host]="'mynetwork.avrtiz.com'">
   </ng2-avrtix>
   `,
 })

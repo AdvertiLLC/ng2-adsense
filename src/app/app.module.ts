@@ -30,8 +30,11 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes, { useHash: true }),
     AdvertiModule.forRoot({
-      adClient: 'ca-pub-7640562161899788',
-      adSlot: 2930227358,
+      network: 'mynetwork',
+      site: 1,
+      placement: 1,
+      width: 728,
+      height: 90,
     }),
     MdoButtonModule,
   ],

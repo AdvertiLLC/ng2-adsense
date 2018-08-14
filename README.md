@@ -38,8 +38,11 @@ import { AdvertiModule } from 'ng2-avrtix';
   imports: [
     // shown passing global defaults (optional)
     AdvertiModule.forRoot({
-      adClient: 'ca-pub-7640562161899788',
-      adSlot: 7259870550,
+      network: 'mynetwork',
+      site: 1,
+      placement: 1,
+      width: 728,
+      height: 90,
     }),
     ...
 ```
@@ -56,25 +59,26 @@ Uses global defaults which can be overriden via inputs
 
 | input        | type          | description                                                           |
 | ------------ | ------------- | --------------------------------------------------------------------- |
-| adClient     | string        | account ca-pub-XXXXXXXXXXXXXXXX                                       |
-| adSlot       | string/number | ad slot/number                                                        |
-| adFormat     | string        | adsense ad format                                                     |
-| adRegion     | string        | older adsense code to make all ads on page the same                   |
+| network      | string        | the network string-id, if whitelabel                                  |
+| site         | string/number | the site id                                                           |
+| placement    | string/number | the placement id                                                      |
 | display      | string        | element display style                                                 |
 | height       | number        | element height in px                                                  |
 | width        | number        | element width in px                                                   |
-| layout       | string        | used for in-feed ads                                                  |
-| layoutKey    | string        | used for in-feed ads                                                  |
-| pageLevelAds | boolean       | enable page-level ads                                                 |
+| host         | string        | Custom whitelabel host (DO NOT CHANGE UNLESS CONFIGURED CORRECTLY)    |
 | timeOutRetry | boolean       | on first load sometimes adsense is not ready. retry's push after x ms |
 | adtest       | string        | sets up some sort of google test ad                                   |
 
 ```html
 <ng-avrtix
-  [adClient]="'ca-pub-7640562161899788'"
-  [adSlot]="7259870550"
-  [display]="'inline-block'"
-  [width]="320"
-  [height]="108">
+  [network]="'mynetwork'"
+  [site]="1"
+  [placement]="1"
+  [width]="728" [height]="90"
+  [host]="'mynetwork.avrtiz.com'">
 </ng-avrtix>
 ```
+
+## Notes on custom host (Whitelabel clients)
+
+To set the host configuration, you have to configure your subdomain/domain CNAME records and optionally the SSL configuration. Doing this will allow you mask Adverti's domains using your own domains. You can read more about it in this [Help Center article](http://help.adverti.io/whitelabel-ad-tech/integration/use-a-custom-domain-for-ad-serving).

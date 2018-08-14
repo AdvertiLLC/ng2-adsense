@@ -16,42 +16,26 @@ import { AdvertiConfig, ADVERTI_TOKEN } from './adverti-config';
   template: `
   <ins #ins class="avrtix"
     [ngStyle]="{'display': display, 'width.px': width, 'height.px': height }"
-    [attr.data-ad-client]="adClient"
-    [attr.data-ad-slot]="adSlot"
-    [attr.data-ad-format]="adFormat"
-    [attr.data-ad-region]="adRegion"
-    [attr.data-layout]="layout"
-    [attr.data-adtest]="adtest"
-    [attr.data-layout-key]="layoutKey">
+    [id]="adRegion">
   </ins>
   `,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdvertiComponent implements OnInit, AfterViewInit, OnDestroy {
-  /** adsense account ca-pub-XXXXXXXXXXXXXXXX */
-  @Input() adClient: string;
-  /** ad slot/number */
-  @Input() adSlot: string | number;
-  @Input() adFormat: string;
-  /** can be manually set if you need all ads on a page to have same id page-xxx */
-  @Input() adRegion = 'page-' + Math.floor(Math.random() * 10000) + 1;
+  @Input() network: string;
+  @Input() site: string | number;
+  @Input() placement: string | number;
+  @Input() host: string;
+  @Input() adRegion: string;
   /** ins element display style */
   @Input() display: string;
   /** ins element height in px */
   @Input() width: number;
   /** ins element width in px */
   @Input() height: number;
-  /** used for in-feed ads */
-  @Input() layout: string;
-  /** used for in-feed ads */
-  @Input() layoutKey: string;
-  /** enable page-level ads */
-  @Input() pageLevelAds: boolean;
-  /** on first load sometimes adsense is not ready */
+  /** on first load sometimes avrtix is not ready */
   @Input() timeOutRetry: number;
-  /** sets up some sort of google test ad */
-  @Input() adtest: string;
   @ViewChild('ins') ins: any;
 
   constructor(
@@ -63,17 +47,15 @@ export class AdvertiComponent implements OnInit, AfterViewInit, OnDestroy {
     function use<T>(source: T, defaultValue: T): T {
       return config && source !== undefined ? source : defaultValue;
     }
-    this.adClient = use(this.adClient, config.adClient);
-    this.adSlot = use(this.adSlot, config.adSlot);
-    this.adFormat = use(this.adFormat, config.adFormat || 'auto');
+    this.network = use(this.network, config.network);
+    this.site = use(this.site, config.site);
+    this.placement = use(this.placement, config.placement);
+    this.host = use(this.host, config.host || 'ssp.avrtix.com');
     this.display = use(this.display, config.display || 'block');
     this.width = use(this.width, config.width);
     this.height = use(this.height, config.height);
-    this.layout = use(this.layout, config.layout);
-    this.layoutKey = use(this.layoutKey, config.layoutKey);
-    this.pageLevelAds = use(this.pageLevelAds, config.pageLevelAds);
     this.timeOutRetry = use(this.timeOutRetry, config.timeOutRetry || 200);
-    this.adtest = use(this.adtest, config.adtest);
+    this.adRegion = 'avrtix-' + Math.floor(Math.random() * 10000) + 1 + '-' + this.placement;
   }
   ngOnDestroy() {
     const iframe = this.ins.nativeElement.querySelector('iframe');
@@ -85,7 +67,7 @@ export class AdvertiComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * attempts to push the ad twice. Usually if one doesn't work the other
-   * will depeding on if the browser has the adsense code cached and
+   * will depeding on if the browser has the avrtix code cached and
    * if its the first page to be loaded
    */
   ngAfterViewInit() {
@@ -97,13 +79,14 @@ export class AdvertiComponent implements OnInit, AfterViewInit, OnDestroy {
 
   push() {
     const p: any = {};
-    if (this.pageLevelAds) {
-      p.google_ad_client = this.adClient;
-      p.enable_page_level_ads = true;
-    }
+    p.tag = this.adRegion;
+    p.network = this.network;
+    p.site = this.site;
+    p.placement = this.placement;
+    p.size = this.width + 'x' + this.height;
+    p.host = this.host;
     try {
-      const avrtix = window['avrtix'];
-      avrtix.push(p);
+      window['avrtixLoad'](p);
       return true;
     } catch (e) {
       return e;

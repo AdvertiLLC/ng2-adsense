@@ -4,27 +4,28 @@ import { InjectionToken } from '@angular/core';
  * Set optional global default values
  */
 export interface AdvertiConfig {
-  /** adsense account ca-pub-XXXXXXXXXXXXXXXX */
-  adClient: string;
-  /** ad slot/number */
-  adSlot: string | number;
-  /** data-ad-format default: auto */
-  adFormat: string;
+  /** the network string-id, if whitelabel **/
+  network: string;
+
+  /** the site id **/
+  site: string | number;
+
+  /** the placement id **/
+  placement: string | number;
+
+  /** Size of the placement **/
+  width: number;
+  height: number;
+
   /** ins element display style */
   display: string;
-  /** ins element height in px */
-  width: number;
-  /** ins element width in px */
-  height: number;
-  /** used for in-feed ads */
-  layout: string;
-  /** used for in-feed ads */
-  layoutKey: string;
-  /** enable page-level ads */
-  pageLevelAds: boolean;
-  /** on first load sometimes adsense is not ready */
+
+  /** Custom whitelabel host (DO NOT CHANGE UNLESS CONFIGURED CORRECTLY) **/
+  /** Learn more at: http://help.adverti.io/whitelabel-ad-tech/integration/use-a-custom-domain-for-ad-serving **/
+  host: string;
+
+  /** wait time if avrtix is not ready on first load **/
   timeOutRetry: number;
-  adtest: string;
 }
 
 export const ADVERTI_TOKEN = new InjectionToken<AdvertiConfig>(
